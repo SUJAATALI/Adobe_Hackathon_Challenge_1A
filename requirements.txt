@@ -1,0 +1,13 @@
+# Core PDF processing
+PyMuPDF==1.22.5          # for fitz PDF parsing
+
+# Language detection
+langdetect==1.0.9        # detects document language
+
+# NLP with spaCy
+spacy==3.7.2             # core NLP library
+
+# Optional: specific spaCy language models (install via CLI)
+# en_core_web_sm
+# es_core_news_sm
+# ja_core_news_sm
