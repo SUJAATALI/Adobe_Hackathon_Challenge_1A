@@ -38,6 +38,35 @@ final 1A/
 
 ## 🚀 Quick Start
 
+
+### 🐳 Run with Docker
+
+#### 1. Build the Docker Image
+
+```bash
+docker build --platform linux/amd64 -t pdf-processor .
+```
+
+#### 2. Run the Processor in Docker
+##Recommended:
+```bash
+python src/process_pdfs.py --input sample_dataset/pdf --output sample_dataset/outputs
+```
+
+```bash
+docker run --rm \
+  -v ${PWD}/sample_dataset/pdf:/app/input:ro \
+  -v ${PWD}/sample_dataset/outputs:/app/output \
+  --network none \
+  pdf-processor \
+  --input /app/input --output /app/output
+```
+
+> 💡 On Windows PowerShell, use `${PWD}` instead of `$PWD`.
+
+---
+
+
 ### 🐍 Run Locally (No Docker)
 
 #### 1. Install Dependencies
@@ -68,28 +97,7 @@ python src/process_pdfs.py --input sample_dataset/pdf --output sample_dataset/ou
 
 ---
 
-### 🐳 Run with Docker
 
-#### 1. Build the Docker Image
-
-```bash
-docker build --platform linux/amd64 -t pdf-processor .
-```
-
-#### 2. Run the Processor in Docker
-
-```bash
-docker run --rm \
-  -v ${PWD}/sample_dataset/pdf:/app/input:ro \
-  -v ${PWD}/sample_dataset/outputs:/app/output \
-  --network none \
-  pdf-processor \
-  --input /app/input --output /app/output
-```
-
-> 💡 On Windows PowerShell, use `${PWD}` instead of `$PWD`.
-
----
 
 ## 📤 Output Format
 
